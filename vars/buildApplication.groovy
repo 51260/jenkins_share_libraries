@@ -3,11 +3,11 @@ def call(Map stageParams){
             case 'maven':
                 sh 'mvn clean install'
                 break
-            case 'mta':
-                mtaBuild script: script
+            case 'gradle':
+                 sh 'gradle build'
                 break
             case 'npm':
-                npmExecute script: script
+                  sh 'npm install'
                 break
                 }
                 }
