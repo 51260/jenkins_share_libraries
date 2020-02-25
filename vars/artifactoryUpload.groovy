@@ -3,7 +3,7 @@ rtUpload (
                 def server = Artifactory.server('Artifactory'),
                 buildName: 'DevSecOps_CICD',
                 buildNumber: Env.BUILD_ID,
-                spec:'''{
+                def uploadSpec :'''{
                     "files": [
                         {
                         "pattern": "${Env.PATTERN_ARTIFACTORY_FOLDER}", 
@@ -11,6 +11,7 @@ rtUpload (
                         }
                     ]
                 }'''
+                server.upload(uploadSpec)
                 )
                 echo 'ARTIFACT UPLOADED TO THE ARTIFACTORY'
  }
