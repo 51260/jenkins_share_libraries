@@ -1,4 +1,5 @@
-def call {
+import org.environment.Env;
+def call () {
   
         script { 
             def server = Artifactory.server('Artifactory')
