@@ -1,5 +1,5 @@
   
-def call(Map stageParams) {
+def call() {
      dependencyCheck additionalArguments: ''' 
         -o "./" 
         -s "./"
