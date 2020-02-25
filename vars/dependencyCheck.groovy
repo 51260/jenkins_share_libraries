@@ -1,9 +1,4 @@
 def call() {
-    dependencyCheck additionalArguments: ''' 
-        -o "./" 
-        -s "./"
-        -f "ALL" 
-        --prettyPrint''', odcInstallation: 'OWASP-DC'
-
+    sh 'mvn dependency-check:check'
     dependencyCheckPublisher pattern: 'dependency-check-report.xml'
     }
