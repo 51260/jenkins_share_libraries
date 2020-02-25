@@ -1,4 +1,4 @@
-def call(Map config=[:], Closure body={}){
+def call(body){
    stage("Build") {
         switch(stageParams.buildTool){
             case 'maven':
