@@ -5,6 +5,4 @@ def call(Map stageParams) {
         branches: [[name:  '*/master' ]],
         userRemoteConfigs: [[ url: stageParams.url ]]
     ])
-  }
-    body()
 }
