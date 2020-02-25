@@ -1,4 +1,3 @@
-  
 def call() {
     dependencyCheck additionalArguments: ''' 
         -o "./" 
