@@ -1,5 +1,5 @@
 def call() {
-    dependencyCheck additionalArguments: ''' 
+    dependencycheck additionalArguments: ''' 
     -o "./" 
     -s "./"
     -f "ALL" 
