@@ -1,5 +1,5 @@
 def call(Map config=[:], Closure body={}){
-       stage("Build") {
+   stage("Build") {
         switch(stageParams.buildTool){
             case 'maven':
                 sh 'mvn clean install'
