@@ -1,13 +1,13 @@
 def call() {
 rtUpload (
-                serverId: 'Artifactory',
+                def server = Artifactory.server('Artifactory'),
                 buildName: 'DevSecOps_CICD',
-                buildNumber: env.BUILD_ID,
+                buildNumber: Env.BUILD_ID,
                 spec:'''{
                     "files": [
                         {
-                        "pattern": "target/simple-spring-webapp-1.0.war",
-                        "target": "DevSecOpspetclinic"
+                        "pattern": "${Env.PATTERN_ARTIFACTORY_FOLDER}", 
+                        "target": "${Env.TARGET_ARTIFACTORY_FOLDER}" 
                         }
                     ]
                 }'''
