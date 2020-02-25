@@ -1,10 +1,9 @@
 import org.environment.Env
-def call(Map config=[:], Closure body={}) {
- stage("Code Checkout")   
+def call(Map stageParams) {  
  checkout([
         $class: 'GitSCM',
         branches: [[name:  '*/master' ]],
-        userRemoteConfigs: [[ url: ENV.giturl ]]
+        userRemoteConfigs: [[ url: stageParams.url ]]
     ])
   }
     body()
