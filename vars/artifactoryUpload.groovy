@@ -1,4 +1,4 @@
-def Upload() {
+def call() {
 rtUpload (
                 serverId: 'Artifactory',
                 buildName: 'DevSecOps_CICD',
