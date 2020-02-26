@@ -10,7 +10,7 @@ def call() {
             }
             ] 
             }"""
-           server.upload(spec) 
+           server.upload spec: spec
         } 
         echo 'ARTIFACT UPLOADED TO THE ARTIFACTORY'
     }
