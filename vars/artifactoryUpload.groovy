@@ -1,4 +1,3 @@
-import org.environment.Env;
 def call (Map stageParams) {
       rtUpload (
           serverId: stageParams.Artifactory,
