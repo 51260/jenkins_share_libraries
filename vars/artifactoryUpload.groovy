@@ -1,4 +1,4 @@
-def call() {
+def call(Closure body={}) {
     stage("Artifact Upload") {
             def server = Artifactory.server('Artifactory')
             def uploadSpec = """{ 
@@ -11,4 +11,5 @@ def call() {
             }""" 
             server.upload spec: uploadSpec          
     }
+        body()
 }
