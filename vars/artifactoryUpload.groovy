@@ -1,4 +1,3 @@
-import org.environment.Env;
 def call(Closure body={}) {
     stage("Artifact Upload") {
         script { 
