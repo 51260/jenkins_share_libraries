@@ -1,7 +1,7 @@
 def call(Map config=[:], Closure body={}) {
     stage("Artifact Upload") {
         script { 
-            def server = Artifactory.newServer url: 'http://ec2-34-223-129-121.us-west-2.compute.amazonaws.com:8081/artifactory', username: 'admin', password: 'DevSecOps'
+            def server = Artifactory.server "Artifactory"
             def uploadSpec = """{ 
             "files": [{ 
             "pattern": "${env.PATTERN_ARTIFACTORY_FOLDER}", 
