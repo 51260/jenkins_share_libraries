@@ -1,17 +1,18 @@
 def call(Closure body={}) {
     stage("Artifact Upload") {
-        script { 
-            def server = Artifactory.server('Artifactory')
-            def uploadSpec = """{ 
-            "files": [
-            { 
-            "pattern": "${env.PATTERN_ARTIFACTORY_FOLDER}", 
-            "target": "${env.TARGET_ARTIFACTORY_FOLDER}" 
-            }
-            ] 
-            }"""
-          server.upload(uploadSpec)  
-        }
+         rtUpload (
+                serverId: 'Artifactory',
+                buildName: 'DevSecOps_CICD',
+                buildNumber: env.BUILD_ID,
+                spec:'''{
+                    "files": [
+                        {
+                        "pattern": "target/simple-spring-webapp-1.0.war",
+                        "target": "DevSecOpspetclinic"
+                        }
+                    ]
+                }'''
+              )
     }
         body()
 }
