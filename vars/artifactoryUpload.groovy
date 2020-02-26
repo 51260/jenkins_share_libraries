@@ -1,4 +1,4 @@
-def call(Map config=[:], Closure body={}) {
+def call(Closure body={}) {
     stage("Artifact Upload") {
         script { 
             def server = Artifactory.server "Artifactory"
