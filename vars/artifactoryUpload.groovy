@@ -1,16 +1,16 @@
 import org.environment.Env;
-def call () {
-  
-        script { 
-            def server = Artifactory.server('Artifactory')
-
-            def uploadSpec = """{ 
-            "files": [{ 
-            "pattern": "${Env.PATTERN_ARTIFACTORY_FOLDER}", 
-            "target": "${Env.TARGET_ARTIFACTORY_FOLDER}" 
-            }] 
-            }""" 
-            server.upload(uploadSpec) 
-        } 
-        echo 'ARTIFACT UPLOADED TO THE ARTIFACTORY'
+def call (Map stageParams) {
+      rtUpload (
+          serverId: 'stageParams.Artifactory',
+          buildName: 'DevSecOps_CICD',
+          buildNumber: Env.BUILD_ID,
+          spec:'''{
+              "files": [
+                  {
+                  "pattern": "target/simple-spring-webapp-1.0.war",
+                  "target": "DevSecOpspetclinic"
+                  }
+              ]
+          }'''
+          )
     }
