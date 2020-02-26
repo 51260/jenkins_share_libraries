@@ -4,8 +4,8 @@ def call(Map config=[:], Closure body={}) {
             def server = Artifactory.server('Artifactory')
             def uploadSpec = """{ 
             "files": [{ 
-            "pattern": "${Env.PATTERN_ARTIFACTORY_FOLDER}", 
-            "target": "${Env.TARGET_ARTIFACTORY_FOLDER}" 
+            "pattern": "${env.PATTERN_ARTIFACTORY_FOLDER}", 
+            "target": "${env.TARGET_ARTIFACTORY_FOLDER}" 
             }] 
             }""" 
             server.upload(uploadSpec) 
