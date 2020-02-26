@@ -3,12 +3,14 @@ def call(Closure body={}) {
         script { 
             def server = Artifactory.server "Artifactory"
             def uploadSpec = """{ 
-            "files": [{ 
+            "files": [
+            { 
             "pattern": "${env.PATTERN_ARTIFACTORY_FOLDER}", 
             "target": "${env.TARGET_ARTIFACTORY_FOLDER}" 
-            }] 
-            }""" 
-            server.upload spec: uploadSpec
+            }
+            ] 
+           }""" 
+            server.upload(uploadSpec) 
         } 
         echo 'ARTIFACT UPLOADED TO THE ARTIFACTORY'
     }
