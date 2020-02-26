@@ -1,8 +1,8 @@
 def call() {
     stage("Artifact Upload") {
-        script { 
+       Artifactory ("upload") { 
             def server = Artifactory.server "Artifactory"
-            def spec = """{ 
+            def uploadSpec = """{ 
             "files": [
             { 
             "pattern": "${env.PATTERN_ARTIFACTORY_FOLDER}", 
@@ -10,7 +10,7 @@ def call() {
             }
             ] 
             }"""
-           server.upload spec: spec
+           server.upload spec: uploadSpec
         } 
         echo 'ARTIFACT UPLOADED TO THE ARTIFACTORY'
     }
