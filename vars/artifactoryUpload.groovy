@@ -10,7 +10,7 @@ def call(Closure body={}) {
             }
             ] 
             }""" 
-            server.upload spec: uploadSpec 
+          server.upload(uploadSpec)  
         }
     }
         body()
