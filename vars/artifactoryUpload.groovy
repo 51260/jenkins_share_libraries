@@ -8,7 +8,7 @@ def call(Map config=[:], Closure body={}) {
             "target": "${env.TARGET_ARTIFACTORY_FOLDER}" 
             }] 
             }""" 
-            server.upload(uploadSpec) 
+            server.upload spec: uploadSpec
         } 
         echo 'ARTIFACT UPLOADED TO THE ARTIFACTORY'
     }
