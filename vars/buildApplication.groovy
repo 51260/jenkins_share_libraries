@@ -1,5 +1,6 @@
-def call(Map stageParams) {
-        switch(stageParams.buildTool){
+def call(Map config=[:], Closure body={}) {
+    stage("Maven Build") {
+        switch(Env.buildTool){
             case 'maven':
                 sh 'mvn clean install'
                 break
@@ -11,3 +12,5 @@ def call(Map stageParams) {
                 break
                 }
                 }
+    body()
+}
