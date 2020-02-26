@@ -14,5 +14,4 @@ def call() {
         } 
         echo 'ARTIFACT UPLOADED TO THE ARTIFACTORY'
     }
-    body()
 }
