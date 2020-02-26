@@ -1,7 +1,7 @@
 def call(Map config=[:], Closure body={}) {
     stage("Artifact Upload") {
         script { 
-            def server = Artifactory.server('Artifactory')
+            def server = Artifactory.server 'Artifactory'
             def uploadSpec = """{ 
             "files": [{ 
             "pattern": "${env.PATTERN_ARTIFACTORY_FOLDER}", 
