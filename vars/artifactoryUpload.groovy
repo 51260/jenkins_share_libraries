@@ -1,6 +1,7 @@
 def call (Map stageParams) {      
 rtUpload (
     serverId: 'Artifactory',
+    failNoOp: true,
     spec: '''{
           "files": [
             {
@@ -8,6 +9,6 @@ rtUpload (
               "target": "DevSecOpspetclinic"
             }
          ]
-    }''',
+    }'''
 )
     }
