@@ -1,7 +1,5 @@
 def call() {
     stage("Artifact Upload") {
-            def server = Artifactory.server "Artifactory"
-            server.upload spec: uploadSpec
             def uploadSpec = """{ 
             "files": [
             { 
@@ -9,7 +7,8 @@ def call() {
             "target": "${env.TARGET_ARTIFACTORY_FOLDER}" 
             }
             ] 
-            }"""
-           
+            }""" 
+            def server = Artifactory.server "Artifactory"
+            server.upload spec: uploadSpec          
     }
 }
