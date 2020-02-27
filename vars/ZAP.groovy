@@ -12,7 +12,17 @@ def start() {
 }
 
 def clean(Map config=[:]) {
-    stage ("Remove old files") {
-        sh "rm -rf ${config.dir}/${config.type}/* >/dev/null 2>&1"
-    }    
+        stage('DAST scan') {
+            steps {
+                script {
+                   sh 'zap-cli quick-scan --spider http://ec2-34-211-215-31.us-west-2.compute.amazonaws.com:8080/simple-spring-webapp-1.0/'
+                }
+            }
+    post {
+        always {
+            script {
+                archiveZap(failAllAlerts: 0, failHighAlerts: 0, failMediumAlerts: 0, failLowAlerts: 0)
+            }
+        }
+    }
 }
