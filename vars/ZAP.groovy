@@ -15,7 +15,7 @@ def clean(Map config=[:]) {
         stage('DAST scan') {
             steps {
                 script {
-                   sh 'zap-cli quick-scan --spider http://ec2-34-211-215-31.us-west-2.compute.amazonaws.com:8080/simple-spring-webapp-1.0/'
+                   sh 'zap-cli quick-scan --spider http://ec2-34-214-172-180.us-west-2.compute.amazonaws.com:8080/simple-spring-webapp-1.0/'
                 }
             }
     post {
