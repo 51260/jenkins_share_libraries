@@ -5,7 +5,7 @@ def call(Map config=[:], Closure body={}) {
     -s "./"
     -f "ALL" 
     --prettyPrint''', odcInstallation: 'OWASP-DC'
-    dependencyCheckPublisher pattern: 'dependency-check-report.xml',failedTotalCritical: 3
+    dependencyCheckPublisher pattern: 'dependency-check-report.xml',failedTotalCritical: 4
     }
     body()
 }
