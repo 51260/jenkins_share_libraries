@@ -3,6 +3,7 @@ def call(Map config=[:], Closure body={}) {
         checkout([$class: 'GitSCM', 
                     branches: [[name: '*/master']], 
                     userRemoteConfigs: [[url: env.GIT_REPO]]])
+                    clearWorkspace: true
 
         echo 'GIT CHECK OUT DONE'
     }
