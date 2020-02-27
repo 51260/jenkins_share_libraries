@@ -26,3 +26,4 @@ def clean(Map config=[:]) {
         }
     }
 }
+}
